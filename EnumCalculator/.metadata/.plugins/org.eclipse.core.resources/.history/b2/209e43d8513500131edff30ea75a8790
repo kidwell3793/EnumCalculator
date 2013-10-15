@@ -1,0 +1,27 @@
+package Calculator;
+
+import java.util.Scanner;
+
+public enum Operations{
+	ADD, SUBTRACT, MULTIPLY, DIVIDE, MOD;
+	
+	Scanner scan = new Scanner(System.in);
+
+	public float performOperation(float x, float y)
+	{
+		switch(this)
+		{
+		case ADD:
+			return (x + y);
+		case SUBTRACT:
+			return (x - y);
+		case MULTIPLY:
+			return (x * y);
+		case DIVIDE:
+			return (x / y);
+		case MOD:
+			return (x % y);
+		}
+		return 0;
+	}
+}

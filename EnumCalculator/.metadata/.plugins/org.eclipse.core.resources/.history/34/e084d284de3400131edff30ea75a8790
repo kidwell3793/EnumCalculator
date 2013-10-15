@@ -1,0 +1,36 @@
+package Calculator;
+import java.util.Scanner;
+
+public class Calculator 
+{
+	Operations setOfOperations;
+	Scanner scan = new Scanner(System.in);
+	
+	public Calculator(Operations operations)
+	{
+		this.setOfOperations = operations;
+	}
+	
+	public void performOperation(int x, int y)
+	{
+		switch(setOfOperations)
+		{
+		case ADDITION:
+			break;
+		case SUBTRACTION:
+			break;
+		case MULTIPLCATION:
+			break;
+		case DIVISION:
+			break;
+		}
+	}
+	
+	public static void main(String[] args) 
+	{
+		float x = 5;
+		float y = 7;
+		System.out.println("Nothing here..." + (x/y));
+	}
+
+}

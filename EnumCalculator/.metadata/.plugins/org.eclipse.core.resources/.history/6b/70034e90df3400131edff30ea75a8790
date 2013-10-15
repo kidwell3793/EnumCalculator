@@ -1,0 +1,9 @@
+package Calculator;
+
+import java.util.Scanner;
+
+public enum Operations {
+	ADDITION, SUBTRACTION, MULTIPLCATION, DIVISION
+	
+	
+}

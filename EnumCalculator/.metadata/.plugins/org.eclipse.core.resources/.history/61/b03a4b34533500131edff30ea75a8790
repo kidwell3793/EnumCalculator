@@ -1,0 +1,43 @@
+package Calculator;
+import java.util.Scanner;
+
+public class Calculator 
+{
+	Operations setOfOperations;
+	Scanner scan = new Scanner(System.in);
+	
+	public Calculator(Operations operations)
+	{
+		this.setOfOperations = operations;
+	}
+	
+	public float performOperation(float x, float y)
+	{
+		switch(setOfOperations)
+		{
+		case ADD:
+			return (x + y);
+		case SUBTRACT:
+			return (x - y);
+		case MULTIPLY:
+			return (x * y);
+		case DIVIDE:
+			return (x / y);
+		case MOD:
+			return (x % y);
+		}
+		return 0;
+	}
+	
+	public static float input()
+	{
+		return 5f;
+	}
+	
+	public static void main(String[] args) 
+	{
+		Calculator add = new Calculator(Operations.ADD);
+		System.out.println(add.performOperation(1, 5));
+	}
+
+}

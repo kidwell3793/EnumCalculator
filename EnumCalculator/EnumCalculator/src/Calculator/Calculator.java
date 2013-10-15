@@ -1,0 +1,107 @@
+package Calculator;
+import java.util.Scanner;
+
+public class Calculator 
+{
+	Operations setOfOperations;
+	static Scanner scan = new Scanner(System.in);
+	static float x, y; 											//Numbers being operated on
+	static String operator;
+	static Calculator calc;
+	
+	public Calculator(Operations operations)
+	{
+		this.setOfOperations = operations;
+	}
+	
+	public void performOperation(float x, float y)
+	{
+		switch(setOfOperations)
+		{
+		case ADD:
+			System.out.println(x + " + " + y + " = " + (x+y));
+			break;
+		case SUBTRACT:
+			System.out.println(x + " - " + y + " = " + (x-y));
+			break;
+		case MULTIPLY:
+			System.out.println(x + " * " + y + " = " + (x*y));;
+			break;
+		case DIVIDE:
+			System.out.println(x + " / " + y + " = " + (x/y));;
+			break;
+		case MOD:
+			System.out.println(x + " % " + y + " = " + (x%y));;
+			break;
+		}
+	}
+	
+	public static void promptForOperator()
+	{
+		System.out.println("Enter an operator (+, -, *, /, or %)");
+		operator = scan.next();
+	}
+	
+	public static void check()
+	{
+		switch(operator)
+		{
+		case "+":
+			calc = new Calculator(Operations.ADD);
+			break;
+		case "-":
+			calc = new Calculator(Operations.SUBTRACT);
+			break;
+		case "*":
+			calc = new Calculator(Operations.MULTIPLY);
+			break;
+		case "/":
+			calc = new Calculator(Operations.DIVIDE);
+			break;
+		case "%":
+			calc = new Calculator(Operations.MOD);
+			break;
+		default:
+			System.out.println("Invalid operator.");
+			promptForOperator();
+		}
+	}
+	
+	public static void promptForNumericalInput()
+	{
+		try{
+			System.out.println("Enter the value for x.");
+			x = scan.nextFloat();
+			System.out.println("Enter the value for y.");
+			y = scan.nextFloat();
+		}
+		catch(Exception e)
+		{
+			System.out.println("That wasn't a number.");
+			promptForNumericalInput();
+		}
+		
+	}
+	
+	public static void promptForContinue()
+	{
+		System.out.println("Would you like to make another calculation? (y/n)");
+		if(scan.next().equals("y"))
+		{
+			promptForOperator();
+		}
+		else
+		{
+			System.exit(0);
+		}
+	}
+	
+	public static void main(String[] args) 
+	{
+		promptForOperator();
+		check();
+		promptForNumericalInput();
+		calc.performOperation(x, y);
+	}
+
+}

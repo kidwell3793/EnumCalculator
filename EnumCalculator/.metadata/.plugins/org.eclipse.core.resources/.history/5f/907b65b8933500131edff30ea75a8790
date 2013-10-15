@@ -1,0 +1,64 @@
+package Calculator;
+import java.util.Scanner;
+
+public class Calculator 
+{
+	Operations setOfOperations;
+	static Scanner scan = new Scanner(System.in);
+	static float x, y; 											//Numbers being operated on
+	static String operator;
+	static Calculator calc;
+	
+	public Calculator(Operations operations)
+	{
+		this.setOfOperations = operations;
+	}
+	
+	public void performOperation(float x, float y)
+	{
+		switch(setOfOperations)
+		{
+		case ADD:
+			System.out.println(x + " + " + y + " = " + (x+y));
+			break;
+		case SUBTRACT:
+			System.out.println(x + " - " + y + " = " + (x-y));
+			break;
+		case MULTIPLY:
+			System.out.println(x + " * " + y + " = " + (x*y));;
+			break;
+		case DIVIDE:
+			System.out.println(x + " / " + y + " = " + (x/y));;
+			break;
+		case MOD:
+			System.out.println(x + " % " + y + " = " + (x%y));;
+			break;
+		}
+	}
+	
+	public float getX()
+	{
+		return x;
+	}
+	
+	public float getY()
+	{
+		return y;
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter an operator (+, -, *, /, or %)");
+		operator = scan.next();
+		if(operator.equals("+"))
+		{
+			calc = new Calculator(Operations.ADD);
+		}
+		calc.performOperation(1, 5);
+//		Calculator add = new Calculator(Operations.ADD);
+//		System.out.println("Adding: " + add.performOperation(1, 5));
+//		Calculator subtract = new Calculator(Operations.SUBTRACT);
+//		System.out.println("Subtracting: " + subtract.performOperation(9,23));
+	}
+
+}

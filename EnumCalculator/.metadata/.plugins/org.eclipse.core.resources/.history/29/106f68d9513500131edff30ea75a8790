@@ -1,0 +1,19 @@
+package Calculator;
+import java.util.Scanner;
+
+public class Calculator 
+{
+	Operations setOfOperations;
+	Scanner scan = new Scanner(System.in);
+	
+	public Calculator(Operations operations)
+	{
+		this.setOfOperations = operations;
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("Nothing here...");
+	}
+
+}

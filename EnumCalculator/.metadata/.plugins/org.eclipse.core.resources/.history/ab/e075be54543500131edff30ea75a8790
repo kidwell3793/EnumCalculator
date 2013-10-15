@@ -1,0 +1,52 @@
+package Calculator;
+import java.util.Scanner;
+
+public class Calculator 
+{
+	Operations setOfOperations;
+	static Scanner scan = new Scanner(System.in);
+	static float x, y; 											//Numbers being operated on
+	
+	public Calculator(Operations operations)
+	{
+		this.setOfOperations = operations;
+	}
+	
+	public float performOperation(float x, float y)
+	{
+		switch(setOfOperations)
+		{
+		case ADD:
+			return (x + y);
+		case SUBTRACT:
+			return (x - y);
+		case MULTIPLY:
+			return (x * y);
+		case DIVIDE:
+			return (x / y);
+		case MOD:
+			return (x % y);
+		}
+		return 0;
+	}
+	
+	public float getX()
+	{
+		return x;
+	}
+	
+	public float getY()
+	{
+		return y;
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter an operator (+, -, *, /, or %)");
+//		Calculator add = new Calculator(Operations.ADD);
+//		System.out.println("Adding: " + add.performOperation(1, 5));
+//		Calculator subtract = new Calculator(Operations.SUBTRACT);
+//		System.out.println("Subtracting: " + subtract.performOperation(9,23));
+	}
+
+}
